@@ -26,6 +26,11 @@ import CoreBluetooth
 
 class SPBluetoothPermission: NSObject, SPPermissionProtocol {
     
+    static let shared = SPBluetoothPermission() //FIXME: 修复蓝牙无法申请权限的bug
+    private override init() {
+        super.init()
+    }
+    
     typealias SPBluetoothPermissionHandler = ()->()?
     private var completion: SPBluetoothPermissionHandler?
     private var manager: CBCentralManager?

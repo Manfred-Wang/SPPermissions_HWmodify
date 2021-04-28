@@ -183,7 +183,7 @@ extension SPPermission {
             #endif
         case .bluetooth:
             #if SPPERMISSION_BLUETOOTH
-            return SPBluetoothPermission()
+            return SPBluetoothPermission.shared //FIXME: 修复蓝牙无法申请权限的bug
             #else
             fatalError(error(permission))
             #endif
